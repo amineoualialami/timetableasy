@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/JSF/Configuration">
+
+
+	<managed-bean>
+
+		<managed-bean-name>user</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.UserManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+
+	<managed-bean>
+
+		<managed-bean-name>campus</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.CampusManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>cursus</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.CursusManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>espace</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.EspaceManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>cour</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.CourManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>periodeDetude</managed-bean-name>
+		<managed-bean-class>
+			com.supinfo.timeweb.managedBean.PeriodeDetudeManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+
+	<managed-bean>
+
+		<managed-bean-name>classe</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.ClasseManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>today</managed-bean-name>
+		<managed-bean-class>java.util.Date</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>foo</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.Schedule
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>selectedDate</property-name>
+			<value>#{today}</value>
+		</managed-property>
+
+	</managed-bean>
+
+	<managed-bean>
+
+		<managed-bean-name>foo2</managed-bean-name>
+		<managed-bean-class>com.supinfo.timeweb.managedBean.ScheduleEtudiant
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>selectedDate</property-name>
+			<value>#{today}</value>
+		</managed-property>
+
+	</managed-bean>
+
+
+	<managed-bean>
+
+		<managed-bean-name>schedule</managed-bean-name>
+		<managed-bean-class>
+			com.supinfo.timeweb.managedBean.ScheduleManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>model</property-name>
+			<value>#{foo}</value>
+		</managed-property>
+
+	</managed-bean>
+
+
+	<managed-bean>
+
+		<managed-bean-name>scheduleE</managed-bean-name>
+		<managed-bean-class>
+			com.supinfo.timeweb.managedBean.ScheduleEtudiantManagedBean
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>model</property-name>
+			<value>#{foo2}</value>
+		</managed-property>
+
+	</managed-bean>
+
+
+
+
+
+
+
+
+	<navigation-rule>
+		<!-- Page pour laquelle on définit la règle -->
+		<from-view-id>/authentification.jsp
+		</from-view-id>
+		<navigation-case>
+			<!--Chaîne qui est utilisée pour référencer la page de destination -->
+			<from-outcome>successAuthentification
+			</from-outcome>
+			<!-- Page de destination -->
+			<to-view-id>/accueil.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/authentification.jsp
+		</from-view-id>
+		<navigation-case>
+			<from-outcome>failedAuthentification
+			</from-outcome>
+			<to-view-id>/failed.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listUtilisateurs</from-outcome>
+			<to-view-id>/utilisateurs.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/utilisateurs.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>addUser</from-outcome>
+			<to-view-id>/addUser.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/utilisateurs.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>updateUser</from-outcome>
+			<to-view-id>/updateUser.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listCampus</from-outcome>
+			<to-view-id>/Campus.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/Campus.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>updateCampus</from-outcome>
+			<to-view-id>/updateCampus.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listCursus</from-outcome>
+			<to-view-id>/cursus.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/cursus.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>updateCursus</from-outcome>
+			<to-view-id>/updateCursus.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listEspaces</from-outcome>
+			<to-view-id>/espaces.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>espacesError</from-outcome>
+			<to-view-id>/failedCampus.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>etudiantError</from-outcome>
+			<to-view-id>/failedEtudiant.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listCours</from-outcome>
+			<to-view-id>/cours.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/cours.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>detailsCour</from-outcome>
+			<to-view-id>/detailsCour.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/cours.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>updateCour</from-outcome>
+			<to-view-id>/updateCour.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listPeriodeDetude</from-outcome>
+			<to-view-id>/periodeDetudes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>periodeDetudeError</from-outcome>
+			<to-view-id>/failedPeriodeDetude.jsp
+			</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/periodeDetudes.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>detailsPeriodeDetude</from-outcome>
+			<to-view-id>/detailsPeriodeDetude.jsp
+			</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/periodeDetudes.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>updatePeriodeDetude</from-outcome>
+			<to-view-id>/updatePeriodeDetude.jsp
+			</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listClasses</from-outcome>
+			<to-view-id>/classes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/classes.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>detailsClasse</from-outcome>
+			<to-view-id>/detailsClasse.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/classes.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>updateClasse</from-outcome>
+			<to-view-id>/updateClasse.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listSchedule</from-outcome>
+			<to-view-id>/listScheduleClasses.jsp
+			</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>addScheduleClasse</from-outcome>
+			<to-view-id>/scheduleClasse.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>listScheduleEtudiant</from-outcome>
+			<to-view-id>/listScheduleEtudiant.jsp
+			</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>authentification</from-outcome>
+			<to-view-id>/authentification.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/scheduleClasse.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>failedIntervenant</from-outcome>
+			<to-view-id>/failedIntervenant.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/scheduleClasse.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>failedEspace</from-outcome>
+			<to-view-id>/failedEspace.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/scheduleClasse.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>failedClasse</from-outcome>
+			<to-view-id>/failedClasse.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/scheduleClasse.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>failedPeriode</from-outcome>
+			<to-view-id>/failedPeriode.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/scheduleClasse.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>failedHorraire</from-outcome>
+			<to-view-id>/failedHorraire.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
+
+
+

@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
+<%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
+<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<f:subview id="sidebar">
+	<rich:panelMenu mode="ajax">
+		<rich:panelMenuGroup label="Espace Administration"
+			action="#{bean.action}" expanded="true" disabled="#{user.bool2}">
+			<rich:panelMenuItem label="Utilisateurs" reRender="test"
+				action="#{user.listUtilisateurs}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+
+			<rich:panelMenuItem label="Cursus" reRender="test"
+				action="#{cursus.listCursus}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+			<rich:panelMenuItem label="Campus" reRender="test"
+				action="#{campus.listCampus}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+		</rich:panelMenuGroup>
+		<rich:panelMenuGroup label="Espace Campus" action="#{bean.action}"
+			expanded="true" disabled="#{user.bool}">
+			<rich:panelMenuItem label="Espaces" reRender="test"
+				action="#{espace.listEspaces}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+			<rich:panelMenuItem label="Classes" reRender="test"
+				action="#{classe.listClasses}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+			<rich:panelMenuItem label="Planning Classe" reRender="test"
+				action="#{schedule.listSchedule}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+			<rich:panelMenuItem label="Planifier un cour" reRender="test"
+				action="#{schedule.addScheduleClasse}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+		</rich:panelMenuGroup>
+		<rich:panelMenuGroup label="Espace Cursus" action="#{bean.action}"
+			expanded="true" disabled="#{user.bool3}">
+			<rich:panelMenuItem label="Cours" reRender="test"
+				action="#{cour.listCours}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+			<rich:panelMenuItem label="Periode d'etude" reRender="test"
+				action="#{periodeDetude.listPeriodeDetude}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+		</rich:panelMenuGroup>
+		<rich:panelMenuGroup label="Espace Etudiant" action="#{bean.action}"
+			expanded="true" disabled="#{user.bool4}">
+			<rich:panelMenuItem label="Mon Planning" reRender="test"
+				action="#{scheduleE.listScheduleE}">
+				<f:param value="test value" name="test" />
+			</rich:panelMenuItem>
+		</rich:panelMenuGroup>
+	</rich:panelMenu>
+
+</f:subview>

@@ -8,29 +8,25 @@ import javax.xml.bind.ValidationException;
 
 import com.supinfo.timetableasy.facade.FacadeRemote;
 
-
-
-
 public class UserManagedBeanTest {
-	
-	private String login ;
+
+	private String login;
 	private String password;
-	
-	
-	
-	
-	
-	public String authentification(){
-		
-		
+	private String toto;
+
+	public String authentification() {
+
 		try {
 			Properties properties = new Properties();
-			properties.put("java.naming.factory.initial","org.jnp.interfaces.NamingContextFactory");
-			properties.put("java.naming.factory.url.pkgs","=org.jboss.naming:org.jnp.interfaces");
-			properties.put("java.naming.provider.url","localhost:1099");
+			properties.put("java.naming.factory.initial",
+					"org.jnp.interfaces.NamingContextFactory");
+			properties.put("java.naming.factory.url.pkgs",
+					"=org.jboss.naming:org.jnp.interfaces");
+			properties.put("java.naming.provider.url", "localhost:1099");
 			InitialContext context;
 			context = new InitialContext(properties);
-			FacadeRemote facade = (FacadeRemote) context.lookup("facadeSB/remote");
+			FacadeRemote facade = (FacadeRemote) context
+					.lookup("facadeSB/remote");
 			facade.authentification(login, password);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -42,32 +38,33 @@ public class UserManagedBeanTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return "coco"; 
-		
+
+		return "coco";
+
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	public String getLogin() {
 		return login;
 	}
+
 	public void setLogin(String login) {
 		this.login = login;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-	
+
+	public String getToto() {
+		return toto;
+	}
+
+	public void setToto(String toto) {
+		this.toto = toto;
+	}
 
 }
